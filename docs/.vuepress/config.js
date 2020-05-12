@@ -1,6 +1,9 @@
 module.exports = {
   base: '/',
   dest: 'dist',
+  head: [
+    ['link', { rel: 'icon', href: 'favicon.ico' }]
+  ],
   title: 'Hello VuePress',
   description: 'Just playing around',
   extraWatchFiles: [//监听文件变动将会触发 vuepress 重新构建，并实时更新。
