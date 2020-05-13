@@ -6,7 +6,7 @@ module.exports = {
     ['link', { rel: 'icon', href: 'favicon.ico' }]
   ],
   title: 'zCloud',
-  description: 'Just playing around',
+  description: '个人网站',
   themeConfig: {
     logo: '/logo.jpg',
     nav: [
