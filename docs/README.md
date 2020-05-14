@@ -4,6 +4,8 @@ layout: HomeLayout
 heroImage: /logo.jpg
 heroText: Hero 标题
 tagline: Hero 副标题
+surname: ZHAO
+name: JIANWEI
 actionText: 快速上手 →
 actionLink: /zh/guide/
 features:

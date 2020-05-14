@@ -7,44 +7,48 @@
   >
     <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
+    <!-- <div class="sidebar-mask" @click="toggleSidebar(false)" /> -->
 
-    <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
+    <!-- <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
       <template #top>
         <slot name="sidebar-top" />
       </template>
       <template #bottom>
         <slot name="sidebar-bottom" />
       </template>
-    </Sidebar>
+    </Sidebar> -->
 
-    <Home v-if="$page.frontmatter.home" />
+    <!-- <Home v-if="$page.frontmatter.home" /> -->
 
-    <Page v-else :sidebar-items="sidebarItems">
+    <!-- <Page v-else :sidebar-items="sidebarItems">
       <template #top>
         <slot name="page-top" />
       </template>
       <template #bottom>
         <slot name="page-bottom" />
       </template>
-    </Page>
+    </Page> -->
+    <div class="left-nav">
+
+    </div>
   </div>
 </template>
 
 <script>
-import Home from "@theme/components/Home.vue";
+// import Home from "@theme/components/Home.vue";
 import Navbar from "@theme/components/Navbar.vue";
-import Page from "@theme/components/Page.vue";
-import Sidebar from "@theme/components/Sidebar.vue";
-import { resolveSidebarItems } from "../util";
+// import Page from "@theme/components/Page.vue";
+// import Sidebar from "@theme/components/Sidebar.vue";
+// import { resolveSidebarItems } from "../util";
+import SearchBox from '@SearchBox'
 
 export default {
   name: "Layout",
 
   components: {
-    Home,
-    Page,
-    Sidebar,
+    // Home,
+    // Page,
+    // Sidebar,
     Navbar
   },
 
@@ -141,5 +145,9 @@ export default {
   width 100vw
   height 100vh
   overflow hidden
-  background: #464646 url('../static/images/people-5143355_1920.jpg') no-repeat fixed center;
+  background: #464646 url('../static/images/v2-e2d79a06fcd84fcbf71860cf20ac55d7_r.jpg') no-repeat fixed center;
+  .left-nav
+    width 46%;
+    height 100%
+    background-color rgba(0, 0, 0, 0.30196078431372547)
 </style>
