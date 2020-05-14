@@ -1,5 +1,6 @@
 ---
 home: true
+layout: HomeLayout
 heroImage: /logo.jpg
 heroText: Hero 标题
 tagline: Hero 副标题

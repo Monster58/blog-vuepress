@@ -1,6 +1,6 @@
 <template>
   <div
-    class="theme-container"
+    class="theme-container home-layout"
     :class="pageClasses"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
@@ -135,3 +135,11 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus">
+.home-layout
+  width 100vw
+  height 100vh
+  overflow hidden
+  background: #464646 url('../static/images/people-5143355_1920.jpg') no-repeat fixed center;
+</style>

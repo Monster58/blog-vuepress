@@ -40,7 +40,9 @@ module.exports = {
   ],
   //开发配置
   extraWatchFiles: [//监听文件变动将会触发 vuepress 重新构建，并实时更新。
-    '../README.md'
+    '/README.md',
+    '.vuepress/theme/layouts/HomeLayout.vue',
+    './config.js'
   ],
   port: 3000,
   theme: undefined,
