@@ -92,6 +92,7 @@ export default {
   .hero
     text-align center
     img
+      border-radius: 8px
       max-width: 100%
       max-height 280px
       display block
