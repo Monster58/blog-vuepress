@@ -6,7 +6,7 @@ heroText: Hero 标题
 tagline: Hero 副标题
 surname: ZHAO
 name: JIANWEI
-actionText: 快速上手 →
+actionText: LEARN MORE →
 actionLink: /zh/guide/
 features:
 - title: 简洁至上

@@ -119,24 +119,28 @@ export default {
       return 'Source'
     }
   },
+
+  mounted() {
+    console.log(this.userLinks)
+  },
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped >
 .nav-links
-  display inline-block
+  display block
   a
     line-height 1.4rem
-    color inherit
+    color #d2d2d2;
     &:hover, &.router-link-active
-      color $accentColor
+      color #b9945d
   .nav-item
     position relative
-    display inline-block
+    display block
     margin-left 1.5rem
     line-height 2rem
-    &:first-child
-      margin-left 0
+    text-align right 
+    margin-bottom .3rem
   .repo-link
     margin-left 1.5rem
 
@@ -148,9 +152,9 @@ export default {
 @media (min-width: $MQMobile)
   .nav-links a
     &:hover, &.router-link-active
-      color $textColor
+      color #b9945d
   .nav-item > a:not(.external)
     &:hover, &.router-link-active
       margin-bottom -2px
-      border-bottom 2px solid lighten($accentColor, 8%)
+      border-bottom none
 </style>

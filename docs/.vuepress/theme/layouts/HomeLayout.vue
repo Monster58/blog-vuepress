@@ -5,7 +5,7 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
-    <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+    <!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
 
     <!-- <div class="sidebar-mask" @click="toggleSidebar(false)" /> -->
 
@@ -16,7 +16,7 @@
       <template #bottom>
         <slot name="sidebar-bottom" />
       </template>
-    </Sidebar> -->
+    </Sidebar>-->
 
     <!-- <Home v-if="$page.frontmatter.home" /> -->
 
@@ -27,20 +27,38 @@
       <template #bottom>
         <slot name="page-bottom" />
       </template>
-    </Page> -->
+    </Page>-->
     <div class="left-nav">
-
+      <HomeLogo />
+      <HomeNavLinks />
+    </div>
+    <div class="right-content">
+      <div class="author-name">
+        <p>{{data.surname}}</p>
+        <p>{{data.name}}</p>
+      </div>
+      <div v-if="data.actionLink && data.actionText" class="home-button">
+        <RouterLink
+          class="home-link"
+          :to="data.actionLink"
+        >
+          {{data.actionText}}
+        </RouterLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // import Home from "@theme/components/Home.vue";
-import Navbar from "@theme/components/Navbar.vue";
+// import Navbar from "@theme/components/Navbar.vue";
+import HomeNavLinks from "@theme/components/HomeNavLinks.vue";
+import HomeLogo from "@theme/components/HomeLogo.vue";
 // import Page from "@theme/components/Page.vue";
 // import Sidebar from "@theme/components/Sidebar.vue";
 // import { resolveSidebarItems } from "../util";
-import SearchBox from '@SearchBox'
+import SearchBox from "@SearchBox";
+import { resolveNavLinkItem } from "../util";
 
 export default {
   name: "Layout",
@@ -49,7 +67,9 @@ export default {
     // Home,
     // Page,
     // Sidebar,
-    Navbar
+    // Navbar,
+    HomeNavLinks,
+    HomeLogo
   },
 
   data() {
@@ -59,6 +79,9 @@ export default {
   },
 
   computed: {
+    data() {
+      return this.$page.frontmatter;
+    },
     shouldShowNavbar() {
       const { themeConfig } = this.$site;
       const { frontmatter } = this.$page;
@@ -110,7 +133,6 @@ export default {
       this.isSidebarOpen = false;
     });
   },
-
   methods: {
     toggleSidebar(to) {
       this.isSidebarOpen = typeof to === "boolean" ? to : !this.isSidebarOpen;
@@ -145,9 +167,46 @@ export default {
   width 100vw
   height 100vh
   overflow hidden
-  background: #464646 url('../static/images/v2-e2d79a06fcd84fcbf71860cf20ac55d7_r.jpg') no-repeat fixed center;
+  background #464646 url('../static/images/v2-e2d79a06fcd84fcbf71860cf20ac55d7_r.jpg') no-repeat fixed center
+  display flex
   .left-nav
-    width 46%;
+    width 46%
     height 100%
     background-color rgba(0, 0, 0, 0.30196078431372547)
+    position relative
+    color #fff
+    display flex
+    flex-direction column
+    align-items flex-end
+    padding-top 20vh
+    padding-right 40px
+    box-sizing border-box
+    >div:first-child
+      margin-bottom 20px
+  .right-content
+    position relative
+    flex 1
+    display flex
+    flex-direction column
+    padding-top 18vh
+    padding-left 40px
+    .author-name
+      font-weight bolder
+      color #fff
+      p
+        margin 0
+        line-height 1
+        font-size 5rem
+    .home-link
+      display block
+      margin-top 6rem
+      padding: 15px 30px
+      width 20%
+      font-size 1rem
+      text-align center
+      color #fff
+      border 2px solid #d2d2d2
+      transition all .3s ease
+      &:hover
+        background-color #d2d2d238
 </style>
