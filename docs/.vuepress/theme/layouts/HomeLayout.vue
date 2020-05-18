@@ -168,6 +168,7 @@ export default {
   height 100vh
   overflow hidden
   background #464646 url('../static/images/v2-e2d79a06fcd84fcbf71860cf20ac55d7_r.jpg') no-repeat fixed center
+  background-size cover
   display flex
   .left-nav
     width 46%
@@ -209,4 +210,35 @@ export default {
       transition all .3s ease
       &:hover
         background-color #d2d2d238
+@media (max-width: $MQMobile)
+  .right-content
+    .author-name
+      p
+        font-size 4rem !important
+    .home-button
+      .home-link
+        margin-top 3rem
+        width 34%
+@media (max-width: $MQMobileNarrow)
+  .right-content
+    .author-name
+      p
+        font-size 3rem !important
+    .home-button
+      .home-link
+        margin-top 3rem
+        width 34%
+  .home-layout
+    .left-nav
+      width 37%
+      padding-right 25px
+      padding-top 19vh
+      .home-logo
+        width 76%
+    .right-content
+      padding-left 25px
+      .home-button
+        .home-link
+          width 56%
+          padding 10px
 </style>

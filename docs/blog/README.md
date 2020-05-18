@@ -2,16 +2,14 @@
 title: 博客
 lang: zh-CNs
 ---
-# Blog1
+# 博客目录
 
-## blogaa
-### 333
+## 2级标题
 
-# Blog1sdfsfa
+### 3级标题
 
-
-# Blog1sdfs
-
-## skdlfjsaj
-
-### 333
+```javascript
+var sayHello = function(){
+  document.write('Hello world!')
+}
+```

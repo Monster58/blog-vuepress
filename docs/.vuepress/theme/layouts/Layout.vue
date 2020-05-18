@@ -102,6 +102,7 @@ export default {
   },
 
   mounted() {
+    console.log(this.$site.pages)
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
