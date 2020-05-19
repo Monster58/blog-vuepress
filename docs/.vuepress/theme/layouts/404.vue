@@ -1,13 +1,14 @@
 <template>
   <div class="theme-container">
     <div class="theme-default-content">
-      <h1>404</h1>
+      <!-- <h1>404</h1>
 
-      <blockquote>{{ getMsg() }}</blockquote>
+      <blockquote>{{ getMsg() }}</blockquote> -->
+      <script type="text/javascript" src="//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js" charset="utf-8" homePageUrl="/" homePageName="回到我的主页"></script>
 
-      <RouterLink to="/">
+      <!-- <RouterLink to="/">
         Take me home.
-      </RouterLink>
+      </RouterLink> -->
     </div>
   </div>
 </template>

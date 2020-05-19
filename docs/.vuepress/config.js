@@ -22,7 +22,7 @@ module.exports = {
         logo: '/logo.jpg',
         nav: [
             { text: '首页', link: '/' },
-            { text: '博客', link: '/blog/' },
+            { text: '博客', link: '/blog/web/' },
             { text: '简历', link: '/resume/' },
             { text: 'GitHub', link: 'https://github.com/Monster58' },
         ],
@@ -40,7 +40,7 @@ module.exports = {
             ],
         },
         displayAllHeaders: true, // 默认值：false 显示所有页面的标题链接
-        lastUpdated: 'Last Updated' // string | boolean
+        lastUpdated: '最后更新时间' // string | boolean
     },
     plugins: {
         '@vuepress/back-to-top': {},
