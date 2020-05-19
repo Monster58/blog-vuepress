@@ -38,12 +38,7 @@
         <p>{{data.name}}</p>
       </div>
       <div v-if="data.actionLink && data.actionText" class="home-button">
-        <RouterLink
-          class="home-link"
-          :to="data.actionLink"
-        >
-          {{data.actionText}}
-        </RouterLink>
+        <RouterLink class="home-link" :to="data.actionLink">{{data.actionText}}</RouterLink>
       </div>
     </div>
   </div>
@@ -132,6 +127,20 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
+    console.log('添加禁止滑动')
+    document.body.addEventListener(
+      "touchmove",
+      this._noPageMove,
+      { passive: false }
+    ) //passive 参数不能省略，用来兼容ios和android
+  },
+  destroyed(){
+    console.log('leave')
+    document.body.removeEventListener(
+      "touchmove",
+      this._noPageMove,
+      { passive: false }
+    )
   },
   methods: {
     toggleSidebar(to) {
@@ -157,88 +166,140 @@ export default {
           this.toggleSidebar(false);
         }
       }
+    },
+    _noPageMove(e){
+      e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
     }
+  },
+  beforeRouteEnter(to, form, next) {
+    console.log('进入')
+    next();
+  },
+  beforeRouteLeave(to, form, next) {
+    console.log('likai ')
+    next();
   }
 };
 </script>
 
 <style lang="stylus">
-.home-layout
-  width 100vw
-  height 100vh
-  overflow hidden
-  background #464646 url('../static/images/v2-e2d79a06fcd84fcbf71860cf20ac55d7_r.jpg') no-repeat fixed center
-  background-size cover
-  display flex
-  .left-nav
-    width 46%
-    height 100%
-    background-color rgba(0, 0, 0, 0.30196078431372547)
-    position relative
-    color #fff
-    display flex
-    flex-direction column
-    align-items flex-end
-    padding-top 20vh
-    padding-right 40px
-    box-sizing border-box
-    >div:first-child
-      margin-bottom 20px
-  .right-content
-    position relative
-    flex 1
-    display flex
-    flex-direction column
-    padding-top 18vh
-    padding-left 40px
-    .author-name
-      font-weight bolder
-      color #fff
-      p
-        margin 0
-        line-height 1
-        font-size 5rem
-    .home-link
-      display block
-      margin-top 6rem
-      padding: 15px 30px
-      width 20%
-      font-size 1rem
-      text-align center
-      color #fff
-      border 2px solid #d2d2d2
-      transition all .3s ease
-      &:hover
-        background-color #d2d2d238
-@media (max-width: $MQMobile)
-  .right-content
-    .author-name
-      p
-        font-size 4rem !important
-    .home-button
-      .home-link
-        margin-top 3rem
-        width 34%
-@media (max-width: $MQMobileNarrow)
-  .right-content
-    .author-name
-      p
-        font-size 3rem !important
-    .home-button
-      .home-link
-        margin-top 3rem
-        width 34%
-  .home-layout
-    .left-nav
-      width 37%
-      padding-right 25px
-      padding-top 19vh
-      .home-logo
-        width 76%
-    .right-content
-      padding-left 25px
-      .home-button
-        .home-link
-          width 56%
-          padding 10px
+.home-layout {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #464646 url('../static/images/v2-e2d79a06fcd84fcbf71860cf20ac55d7_r.jpg') no-repeat fixed center;
+  background-size: cover;
+  display: flex;
+
+  .left-nav {
+    width: 46%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.30196078431372547);
+    position: relative;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 20vh;
+    padding-right: 40px;
+    box-sizing: border-box;
+
+    >div:first-child {
+      margin-bottom: 20px;
+    }
+  }
+
+  .right-content {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 18vh;
+    padding-left: 40px;
+
+    .author-name {
+      font-weight: bolder;
+      color: #fff;
+
+      p {
+        margin: 0;
+        line-height: 1;
+        font-size: 5rem;
+      }
+    }
+
+    .home-link {
+      display: block;
+      margin-top: 6rem;
+      padding: 15px 30px;
+      width: 20%;
+      font-size: 1rem;
+      text-align: center;
+      color: #fff;
+      border: 2px solid #d2d2d2;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #d2d2d238;
+      }
+    }
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .right-content {
+    .author-name {
+      p {
+        font-size: 4rem !important;
+      }
+    }
+
+    .home-button {
+      .home-link {
+        margin-top: 3rem;
+        width: 34%;
+      }
+    }
+  }
+}
+
+@media (max-width: $MQMobileNarrow) {
+  .right-content {
+    .author-name {
+      p {
+        font-size: 3rem !important;
+      }
+    }
+
+    .home-button {
+      .home-link {
+        margin-top: 3rem;
+        width: 34%;
+      }
+    }
+  }
+
+  .home-layout {
+    .left-nav {
+      width: 37%;
+      padding-right: 25px;
+      padding-top: 19vh;
+
+      .home-logo {
+        width: 76%;
+      }
+    }
+
+    .right-content {
+      padding-left: 25px;
+
+      .home-button {
+        .home-link {
+          width: 56%;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
 </style>
