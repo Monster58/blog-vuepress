@@ -50,7 +50,6 @@
 // import Navbar from "@theme/components/Navbar.vue";
 import HomeNavLinks from "@theme/components/HomeNavLinks.vue";
 import HomeLogo from "@theme/components/HomeLogo.vue";
-// import Loading from "@theme/components/Loading.vue";
 
 // import Page from "@theme/components/Page.vue";
 // import Sidebar from "@theme/components/Sidebar.vue";
@@ -129,11 +128,6 @@ export default {
   },
 
   mounted() {
-    // this.$nextTick(()=> {
-    //   setTimeout(() => {
-    //     this.showLoading = false
-    //   }, 3000);
-    // })
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
