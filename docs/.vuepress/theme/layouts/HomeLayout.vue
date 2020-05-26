@@ -5,6 +5,7 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+  <!-- <Loading v-if="showLoading" /> -->
     <!-- <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" /> -->
 
     <!-- <div class="sidebar-mask" @click="toggleSidebar(false)" /> -->
@@ -49,6 +50,8 @@
 // import Navbar from "@theme/components/Navbar.vue";
 import HomeNavLinks from "@theme/components/HomeNavLinks.vue";
 import HomeLogo from "@theme/components/HomeLogo.vue";
+// import Loading from "@theme/components/Loading.vue";
+
 // import Page from "@theme/components/Page.vue";
 // import Sidebar from "@theme/components/Sidebar.vue";
 // import { resolveSidebarItems } from "../util";
@@ -64,12 +67,14 @@ export default {
     // Sidebar,
     // Navbar,
     HomeNavLinks,
-    HomeLogo
+    HomeLogo,
+    // Loading
   },
 
   data() {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      showLoading: true
     };
   },
 
@@ -124,10 +129,14 @@ export default {
   },
 
   mounted() {
+    // this.$nextTick(()=> {
+    //   setTimeout(() => {
+    //     this.showLoading = false
+    //   }, 3000);
+    // })
     this.$router.afterEach(() => {
       this.isSidebarOpen = false;
     });
-    console.log('添加禁止滑动')
     document.body.addEventListener(
       "touchmove",
       this._noPageMove,
@@ -135,7 +144,6 @@ export default {
     ) //passive 参数不能省略，用来兼容ios和android
   },
   destroyed(){
-    console.log('leave')
     document.body.removeEventListener(
       "touchmove",
       this._noPageMove,
