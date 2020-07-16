@@ -1,5 +1,4 @@
-const BLOG_BASE_PATH = '/blog/'
-
+const blogCatalog = require('./BlogCatalog.js');
 module.exports = {
     //站点配置
     base: '/',
@@ -22,24 +21,13 @@ module.exports = {
         logo: '/logo.jpg',
         nav: [
             { text: '首页', link: '/' },
-            { text: '博客', link: '/blog/web/' },
+            { text: '博客', link: '/blog/' },
+            { text: '作品', link: '/works/' },
             { text: '简历', link: '/resume/' },
             { text: 'GitHub', link: 'https://github.com/Monster58' },
         ],
-        sidebar: {
-            '/blog/': [
-                // '',     /* /blog/ */
-                {
-                    title: '前端开发',
-                    path: `${BLOG_BASE_PATH}web/`,
-                    children: [{
-                        title: '第一篇笔记',
-                        path: `${BLOG_BASE_PATH}web/`
-                    }]
-                }
-            ],
-        },
-        displayAllHeaders: true, // 默认值：false 显示所有页面的标题链接
+        sidebar: blogCatalog,
+        displayAllHeaders: false, // 默认值：false 显示所有页面的标题链接
         lastUpdated: '最后更新时间' // string | boolean
     },
     plugins: {

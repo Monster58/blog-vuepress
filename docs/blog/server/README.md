@@ -1,5 +1,5 @@
 ---
-title: 博客
+title: 服务器
 lang: zh-CN
 ---
 # Blog2
