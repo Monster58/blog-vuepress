@@ -60,3 +60,33 @@ $ ./nginx -s reload
 ```shell
 $ ps aux | grep nginx
 ```
+
+### 增加第三方模块
+
+在nginx安装包中使用`./configure --help`命令查看可安装模块
+
+例如：
+
+1. 重新选择要安装的模块
+
+```shell
+./configure --prefix=/usr/local/nginx --without-http_gzip_module --without-http_rewrite_module --without-http_proxy_module --with-http_gzip_static_module --without-pcre --with-pcre --with-stream --with-stream_ssl_module --with-http_ssl_module --with-http_v2_module --with-threads --add-module=/usr/local/echo-nginx-module-0.62
+```
+
+2. 执行编译命令
+
+   ```shell
+   make
+   ```
+
+   > 不要使用`make install`,否则会替换掉原有安装目录
+
+   
+
+3. 替换原有的nginx
+
+   ```shell
+   cp objs/nginx /usr/local/nginx/sbin/
+   ```
+
+4. 重启nginx
