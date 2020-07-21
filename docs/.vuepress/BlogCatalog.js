@@ -74,12 +74,21 @@ module.exports = {
                     path: `${BLOG_BASE_PATH}web/Regular/`
                 }
             ]
-        }, {
+        },
+        {
             title: '服务器',
             path: `${BLOG_BASE_PATH}server/`,
             children: [{
                 title: 'Nginx',
                 path: `${BLOG_BASE_PATH}server/nginx/`
+            }]
+        },
+        {
+            title: '其他',
+            path: `${BLOG_BASE_PATH}other/typora/`,
+            children: [{
+                title: 'typora+picgo-core+github配置图床实现自动上传图片',
+                path: `${BLOG_BASE_PATH}other/typora/`
             }]
         }
     ]
