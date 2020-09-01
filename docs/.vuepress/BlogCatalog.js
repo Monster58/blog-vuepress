@@ -81,6 +81,9 @@ module.exports = {
             children: [{
                 title: 'Nginx',
                 path: `${BLOG_BASE_PATH}server/nginx/`
+            }, {
+                title: 'MySql',
+                path: `${BLOG_BASE_PATH}server/mysql/`
             }]
         },
         {
