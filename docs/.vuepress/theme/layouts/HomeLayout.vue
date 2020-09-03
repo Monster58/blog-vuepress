@@ -53,7 +53,7 @@ import HomeLogo from "@theme/components/HomeLogo.vue";
 
 // import Page from "@theme/components/Page.vue";
 // import Sidebar from "@theme/components/Sidebar.vue";
-// import { resolveSidebarItems } from "../util";
+import { resolveSidebarItems } from "../util";
 import SearchBox from "@SearchBox";
 import { resolveNavLinkItem } from "../util";
 

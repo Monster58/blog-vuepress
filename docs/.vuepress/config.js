@@ -21,7 +21,7 @@ module.exports = {
         logo: '/logo.jpg',
         nav: [
             { text: '首页', link: '/' },
-            { text: '博客', link: '/blog/' },
+            { text: '博客', link: '/blog/web/' },
             { text: '作品', link: '/works/' },
             { text: '简历', link: '/resume/' },
             { text: 'GitHub', link: 'https://github.com/Monster58' },
