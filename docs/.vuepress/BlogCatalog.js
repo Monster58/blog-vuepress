@@ -84,6 +84,9 @@ module.exports = {
             }, {
                 title: 'MySql',
                 path: `${BLOG_BASE_PATH}server/mysql/`
+            }, {
+                title: '通过node创建服务器',
+                path: `${BLOG_BASE_PATH}server/node/`
             }]
         },
         {
