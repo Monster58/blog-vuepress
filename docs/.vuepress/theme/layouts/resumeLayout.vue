@@ -21,7 +21,7 @@
     <Home v-if="$page.frontmatter.home" />
     <div class="page">
       <div class="resume-container">
-        <img src="../static/resume/01.jpg" alt="">
+        <img src="/images/resume/01.jpg " alt="">
       </div>
       <div class="download">
         <a download="前端开发-赵建伟" href="/images/resume/01.jpg">下载JPG</a>
