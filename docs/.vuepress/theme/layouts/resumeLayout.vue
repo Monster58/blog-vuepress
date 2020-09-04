@@ -152,6 +152,7 @@ export default {
 .resume-container img {
   margin: 0 auto;
   display: block;
+  max-width: 100%;
 }
 .download {
   display: flex;
