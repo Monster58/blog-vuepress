@@ -95,6 +95,9 @@ module.exports = {
             children: [{
                 title: 'typora+picgo-core+github配置图床实现自动上传图片',
                 path: `${BLOG_BASE_PATH}other/typora/`
+            }, {
+                title: 'npm发包教程',
+                path: `${BLOG_BASE_PATH}other/npm/`
             }]
         }
     ]
